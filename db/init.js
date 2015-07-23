@@ -11,7 +11,11 @@ con.knex.schema.createTable('drone', function(table) {
 	table.string('hash');
 	table.string('salt');
 	})
+
 	
 	.catch(function(e) {
   console.error(e);
+  console.log("FAILED")
+	process.exit();
 });
+
