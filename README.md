@@ -2,15 +2,11 @@ cd avian-api
 #
 npm install 
 #
-cp db/init.js db/init.local.js 
-#
-echo "db/init.js" >> .gitignore 
-#
 create role with password and create db 
 #
-fill in psql role, pass, dbname in init.local.js 
+fill in psql role, pass, dbname in localconfig.js 
 #
-node db/init.locl.js 
+node db/init.js 
 #
 #TODO 
 - link passort local strategy with users table 

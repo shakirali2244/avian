@@ -4,7 +4,8 @@
   "description": "rest api for drone control",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "postinstall": "cp db/template db/localconfig.js"
   },
   "repository": {
     "type": "git",

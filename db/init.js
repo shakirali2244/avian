@@ -1,5 +1,5 @@
 // import the connection from knex constructer
-con = require('../knex.js');
+con = require('./localconfig.js');
 
 con.knex.schema.createTable('drone', function(table) {
 	table.string('ip_addr');
