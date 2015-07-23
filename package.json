@@ -1,0 +1,32 @@
+{
+  "name": "avian-api",
+  "version": "0.0.1",
+  "description": "rest api for drone control",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shakirali2244/avian-api.git"
+  },
+  "keywords": [
+    "avian"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shakirali2244/avian-api/issues"
+  },
+  "homepage": "https://github.com/shakirali2244/avian-api#readme",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "cookie-parser": "^1.3.5",
+    "express": "^4.13.1",
+    "express-session": "^1.11.3",
+    "knex": "^0.8.6",
+    "passport": "^0.2.2",
+    "passport-local": "^1.0.0",
+    "pg": "^4.4.0"
+  }
+}
