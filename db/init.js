@@ -6,7 +6,7 @@ con.knex.schema.createTable('drone', function(table) {
 	table.string('name');
 	})
 
-	.createTable('User', function(table) {
+	.createTable('user', function(table) {
 	table.string('email').unique();
 	table.string('hash');
 	table.string('salt');
