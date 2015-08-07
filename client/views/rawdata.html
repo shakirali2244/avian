@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<br /><br /><br /><br />
+
+    
+<div class = "container">
+    
+    <h1 style = "color:#8d3442">
+        Control the <span style = "color:#000"> Blackbird! </span>
+    </h1> 
+    
+  
+    <map center="Simon Fraser University" zoom="15" on-click="placeMarker()"></map>
+
+    <h2>Diagnostics </h2>
+    
+    <div id = "Diagnostics">
+        
+        <h3> Notifications</h3>
+        
+        <div class = "row bg-warning img-rounded">
+            <div class = "cold-md-12">
+                <h4> >> {{notificationText}} </h4>
+            </div>
+        </div>
+        
+        <br />
+        
+        <div class = "row bg-info img-rounded">
+
+            <div class = "col-md-12">
+                
+                <h3>Offboard control is
+                <button id = "offboardControl" type = "button" class = "btn btn-lg {{offboardControlButtonType}}" ng-click="offboardControl()">
+                <b style= "color: #581d1d">{{offboardControlStatusText}}</b>
+                </button>
+                </h3>
+                
+                <h3>    
+                <button id = "takeoff" type = "button" class = "btn btn-lg {{takeOffButtonType}}" ng-click="takeoff()">
+                <b style= "color: #581d1d">Takeoff!</b>
+                </button>
+                    
+                <button id = "land" type = "button" class = "btn btn-lg {{landButtonType}}" ng-click="land()">
+                <b style= "color: #581d1d">Go Home!</b>
+                </button>
+                </h3>
+                
+            </div>
+
+        </div>
+        
+    </div>    
+
+    <h2>Raw Data</h2>
+    
+    <div id = "rawData">
+    
+    <div class = "Aux">    
+        <div class = "row bg-info img-rounded">
+            <div class = "row">
+            <div class = "col-md-4">
+                <h3>Aux1: <span id = "aux1Value">{{aux1Value}}</span></h3>
+            </div>
+            </div>
+
+        </div>
+        
+        <div class = "row">
+            
+            <div class = "col-md-12">
+                <h3>Current GPS heading: <span id = "gpsHeading">{{gpsHeading}}</span></h3>
+            </div>
+            
+        </div>
+
+    </div>
+    
+    </div>    
+    
+
+</div>
+
+    
+    
+    
+</html>
+    

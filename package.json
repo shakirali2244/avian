@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/shakirali2244/avian-api#readme",
   "dependencies": {
+    "angular": "^1.4.3",
     "body-parser": "^1.13.2",
     "cookie-parser": "^1.3.5",
     "express": "^4.13.1",
@@ -28,6 +29,7 @@
     "knex": "^0.8.6",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
-    "pg": "^4.4.0"
+    "pg": "^4.4.0",
+    "socket.io": "^1.3.6"
   }
 }

@@ -27,7 +27,7 @@ passport.deserializeUser(function(idloc, done) {
 // MIDDLEWARES !! https://github.com/senchalabs/connect#middleware
 app.use(express.static(__dirname + '/public'));
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true });
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require('express-session')({
     secret: 'keyboard cat',
     resave: false,
@@ -45,17 +45,17 @@ app.get('/login', function(req, res) {
 	}
   });
 
-app.post("/login",passport.authenticate('local', { successRedirect: '/admin',
+/*app.post("/login",passport.authenticate('local', { successRedirect: '/admin',
                                    failureRedirect: '/login',
                                    failureFlash: true }));
 
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/'); //Can fire before session is destroyed?
-});
+});*/
 
-app.get('/', function(req, res){
-  res.send('hello world');
+app.use('/*', function(req, res){
+  res.sendFile(__dirname + '/client/index.html');
 });
 
   
