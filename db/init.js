@@ -24,7 +24,7 @@ con.knex.schema.createTable('user', function(table) {
   	console.error(e);
 	})
 	.then(function(){
-	console.log(" EXITING")
+	console.log("DB initialized - everything is OK!")
 	process.exit();
 	});
 

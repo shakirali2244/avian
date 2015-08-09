@@ -93,4 +93,5 @@ passport.use(new LocalStrategy(
 }));
 
 
+console.log("Server listening on localhost:3000...")
 app.listen(3000);
