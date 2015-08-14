@@ -1,3 +1,5 @@
+1. 'npm install -g grunt-cli bower yo generator-karma generator-angular' - install grunt-cli yo and generators
+
 1. `cd avian-api` 
 
 1. `npm install` - install the root package dependencies
@@ -18,9 +20,11 @@
 
 1. `node db/init.js` - init the db
 
+1. 'grunt' - build the front end app
+
 1. `node .` - start the server
 
 #
 #TODO 
-- link passort local strategy with users table 
-- add angular 
+- add Bcrypt integration
+- link passort local strategy with users table  
