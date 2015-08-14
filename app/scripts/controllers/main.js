@@ -21,5 +21,7 @@ angular.module('avianApp')
       var marker = new google.maps.Marker({position: e.latLng, map: map});
       map.panTo(e.latLng);
     }
+
+    var socket = io.connect('http://localhost:3000');
   });
 });

@@ -1,14 +1,35 @@
 var express = require('express');
 var app = express();
+var server = require('http').Server(app);
 var con = require(__dirname + '/db/localconfig.js');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session')
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
+var io = require('socket.io')(server);
+// MIDDLEWARES !! https://github.com/senchalabs/connect#middleware
+app.use(express.static(__dirname + '/public'));
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + '/app'));
+
+console.log("Server listening on localhost:3000...")
+server.listen(3000);
+
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('a',function (data){
+    console.log(data);
+  })
+});
 
 passport.serializeUser(function(user, done) {
   done(null, user[0].id);
@@ -24,17 +45,7 @@ passport.deserializeUser(function(idloc, done) {
     });
 });
 
-// MIDDLEWARES !! https://github.com/senchalabs/connect#middleware
-app.use(express.static(__dirname + '/public'));
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(require('express-session')({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+
 //app.use(app.router);
 
 app.get('/login', function(req, res) {
@@ -94,7 +105,3 @@ passport.use(new LocalStrategy(
       }
     );
 }));
-
-
-console.log("Server listening on localhost:3000...")
-app.listen(3000);
