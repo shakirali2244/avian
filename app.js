@@ -8,7 +8,7 @@ var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/app'));
 
 passport.serializeUser(function(user, done) {
   done(null, user[0].id);
@@ -55,8 +55,9 @@ app.get('/logout', function(req, res){
 });*/
 
 app.use('/*', function(req, res){
-  res.sendFile(__dirname + '/client/index.html');
+  res.sendFile(__dirname + '/app/index.html');
 });
+
 
   
 //Local strategy
