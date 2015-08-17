@@ -1,8 +1,29 @@
 <div ng-controller="MainCtrl">
-  <map zoom="14" 
-   center="49.277447, -122.917120" 
-   on-click="placeMarker()" 
-   map-type-id="HYBRID"
-   style="width:800px;height:500px;">
-  </map>
-</div> 
+    <div id="map" style="height:500px;  overflow:visible;"></div>
+    <script type="text/javascript">
+
+      var map;
+      function initMap() {
+        var socket = io.connect('http://localhost:3000');
+        socket.on("location", function(data){
+          latlong = data;
+          for (var i = 0; i < data.length; i++) {
+            var marker = new google.maps.Marker({
+            position: data[i],
+            map: map,
+            title: 'Drone'
+            }); 
+          }
+        });
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 49.277447, lng: -122.917120},
+          zoom: 14,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        });
+      }
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+
+</div>
