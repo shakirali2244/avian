@@ -1,8 +1,12 @@
 1. 'npm install -g grunt-cli bower yo generator-karma generator-angular' - install grunt-cli yo and generators
 
-1. `cd avian-api` 
+1. `cd avian-api` - cd
 
 1. `npm install` - install the root package dependencies
+
+1. 'bower install' - install front end scripts if did not follow npm
+
+1. 'cp db/template db/localhost' - if did not follow bower automatically
 
 1. `sudo su postgres` - switch to postgres user
 
