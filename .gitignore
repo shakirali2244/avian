@@ -5,3 +5,4 @@ db/localconfig.js
 /.tmp
 /.sass-cache
 /bower_components
+/ssl
