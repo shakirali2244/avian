@@ -4,8 +4,21 @@
 
       var map;
       function initMap() {
-        var socket = io.connect('http://localhost:3000');
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 49.277447, lng: -122.917120},
+          zoom: 14,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        });
+      }
+      var socket = io.connect('http://localhost:3000');
         socket.on("location", function(data){
+           map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 49.277447, lng: -122.917120},
+          zoom: 14,
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        });
+          setMapOnAll(null);
+          console.log(data);
           latlong = data;
           for (var i = 0; i < data.length; i++) {
             var marker = new google.maps.Marker({
@@ -15,12 +28,6 @@
             }); 
           }
         });
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 49.277447, lng: -122.917120},
-          zoom: 14,
-          mapTypeId: google.maps.MapTypeId.HYBRID
-        });
-      }
     </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?callback=initMap">
