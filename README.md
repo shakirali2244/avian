@@ -6,7 +6,7 @@
 
 1. 'bower install' - install front end scripts if did not follow npm
 
-1. 'cp db/template db/localhost' - if did not follow bower automatically
+1. 'cp db/template db/localconfig.js' - if did not follow bower automatically
 
 1. `sudo su postgres` - switch to postgres user
 
