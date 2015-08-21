@@ -3,31 +3,60 @@
     <script type="text/javascript">
 
       var map;
+      var markers = [];
       function initMap() {
+
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 49.277447, lng: -122.917120},
           zoom: 14,
           mapTypeId: google.maps.MapTypeId.HYBRID
         });
-      }
-      var socket = io.connect('http://localhost:3000');
-        socket.on("location", function(data){
+        
+
+        var socket = io.connect('http://localhost:3000');
+        socket.on('location', function(data){
+          if (!map){
            map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 49.277447, lng: -122.917120},
           zoom: 14,
           mapTypeId: google.maps.MapTypeId.HYBRID
-        });
-          setMapOnAll(null);
-          console.log(data);
-          latlong = data;
+            });
+           }
+          deleteMarkers();
+          
           for (var i = 0; i < data.length; i++) {
-            var marker = new google.maps.Marker({
-            position: data[i],
-            map: map,
-            title: 'Drone'
-            }); 
+            addMarker(data[i]);
           }
+          console.log(markers)
         });
+
+        function setMapOnAll(map) {
+          for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+          }
+        }
+
+
+        function addMarker(location) {
+          var marker = new google.maps.Marker({
+            position: location,
+            map: map
+          });
+          markers.push(marker);
+        }
+
+
+        // Removes the markers from the map, but keeps them in the array.
+        function clearMarkers() {
+          setMapOnAll(null);
+        }
+
+        function deleteMarkers() {
+          clearMarkers();
+          markers = [];
+        }
+
+      }
     </script>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?callback=initMap">
