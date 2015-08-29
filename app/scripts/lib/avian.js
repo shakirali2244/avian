@@ -1,17 +1,4 @@
-<div ng-controller="MainCtrl">
-  <div class="row">
-    <div id="map" style="height:500px;  overflow:visible;"></div>
-  </div>
-  <br />
-  <div class="row">
-    <div class="col-md-3">
-      <button type="button"  onClick="deleteMarkers()" class="btn btn-default" aria-label="Left Align">
-        <span class="glyphicon glyphicon-trash" aria-hidden="true"> Clear Markers</span>
-      </button>
-    </div>
-  </div>
-<script>
-  var map;
+var map;
 var markers = [];
 var drones = [];
 function initMap() {
@@ -111,9 +98,3 @@ function setMapOnAllDrone(map) {
     clearDrones();
     drones = [];
   }
-
-</script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?callback=initMap">
-    </script>
-</div>
