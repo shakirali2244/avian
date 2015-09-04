@@ -1,16 +1,32 @@
 <div ng-controller="MainCtrl">
   <div class="row">
-    <div class="col-md-1" style="height: 1000px;">
-        <button type="button" onClick="sendIncreaseAlt()" class="btn btn-primary" aria-label="Center Align">
+    <div class="col-md-3" style="height:80vh;" >
+        <button type="button" onClick="sendIncreaseAlt()" class="btn btn-primary abovealt" aria-label="Center Align">
           <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
       </button>
       <input id="currentAlt" type="range" orient="vertical" max=50 min=0 step=1>
-      <button type="button" onClick="sendDecreaseAlt()" class="btn btn-primary bottom-aligned-text" aria-label="Center Align">
+      <button type="button" onClick="sendDecreaseAlt()" class="btn btn-primary bottom-aligned-text rockbottom" aria-label="Center Align">
           <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
       </button>
+      <br />
+      <button type="button" onClick="sendTakeoff()" class="btn btn-primary" aria-label="Center Align">
+        <span class="glyphicon glyphicon-upload" aria-hidden="true"> Takeoff </span>
+      </button>
+      <br />
+      <button type="button"  onClick="deleteMarkers()" class="btn btn-primary" aria-label="Center Align">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"> Clear Goto </span>
+      </button>
+      <br />
+      <button type="button" onClick="sendHome()" class="btn btn-primary" aria-label="Center Align">
+        <span class="glyphicon glyphicon-home" aria-hidden="true"> Go Home </span>
+      </button>
+      <br />
+      <button type="button" onClick="sendLand()" class="btn btn-danger" aria-label="Center Align">
+        <span class="glyphicon glyphicon-road" aria-hidden="true"> Emergency Landing</span>
+      </button>
     </div>
-    <div class="col-md-7">
-      <object width="100%" height="67%"> 
+    <div class="col-md-6">
+      <object width="100%" height="100%"> 
         <param name="movie" value="../StrobeMediaPlayback.swf"></param>
         <param name="flashvars" value="src=rtmp%3A%2F%2Fwww.avianrobotics.com%3A3002%2Flive%2Fstream1&streamType=live&optimizeBuffering=false&bufferTime=0&initialBufferTime=0&expandedBufferTime=0&liveBufferTime=0&minContinuousPlaybackTime=0&autoPlay=true"></param>
         <param name="allowFullScreen" value="true"></param>
@@ -21,31 +37,10 @@
     </div>
 
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div id="map" style="height:460px;  overflow:visible;"></div>
     </div>
-  </div>
-  <br />
-      <div class="col-md-3">
-      <button type="button" onClick="sendTakeoff()" class="btn btn-primary" aria-label="Center Align">
-        <span class="glyphicon glyphicon-upload" aria-hidden="true"> Takeoff </span>
-      </button>
-    </div>
-    <div class="col-md-3">
-      <button type="button"  onClick="deleteMarkers()" class="btn btn-primary" aria-label="Center Align">
-        <span class="glyphicon glyphicon-trash" aria-hidden="true"> Clear Goto </span>
-      </button>
-    </div>
-        <div class="col-md-3">
-      <button type="button" onClick="sendHome()" class="btn btn-primary" aria-label="Center Align">
-        <span class="glyphicon glyphicon-home" aria-hidden="true"> Go Home </span>
-      </button>
-    </div>
-    <div class="col-md-3">
-      <button type="button" onClick="sendLand()" class="btn btn-danger" aria-label="Center Align">
-        <span class="glyphicon glyphicon-road" aria-hidden="true"> Emergency Landing</span>
-      </button>
-    </div>
+  </div>     
 
 <script src="/scripts/lib/avian.js">
 </script>
