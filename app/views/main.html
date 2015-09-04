@@ -1,9 +1,15 @@
 <div ng-controller="MainCtrl">
   <div class="row">
-    <div class="col-md-1">
-      <input type="range" orient="vertical">
+    <div class="col-md-1" style="height: 1000px;">
+        <button type="button" onClick="sendIncreaseAlt()" class="btn btn-primary" aria-label="Center Align">
+          <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+      </button>
+      <input id="currentAlt" type="range" orient="vertical" max=50 min=0 step=1>
+      <button type="button" onClick="sendDecreaseAlt()" class="btn btn-primary bottom-aligned-text" aria-label="Center Align">
+          <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+      </button>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-7">
       <object width="100%" height="67%"> 
         <param name="movie" value="../StrobeMediaPlayback.swf"></param>
         <param name="flashvars" value="src=rtmp%3A%2F%2Fwww.avianrobotics.com%3A3002%2Flive%2Fstream1&streamType=live&optimizeBuffering=false&bufferTime=0&initialBufferTime=0&expandedBufferTime=0&liveBufferTime=0&minContinuousPlaybackTime=0&autoPlay=true"></param>
@@ -15,8 +21,8 @@
     </div>
 
 
-    <div class="col-md-3">
-      <div id="map" style="height:230px;  overflow:visible;"></div>
+    <div class="col-md-4">
+      <div id="map" style="height:460px;  overflow:visible;"></div>
     </div>
   </div>
   <br />

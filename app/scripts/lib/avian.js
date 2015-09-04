@@ -23,9 +23,17 @@ function initMap() {
     
     for (var i = 0; i < data.length; i++) {
       addDrone(data[i]);
+      var x = document.getElementById("currentAlt");
+      console.log(x.value);
+      x.value = data[i].alt;
     }
-    console.log(drones)
+    //console.log(drones)
   });
+
+  socket.on('notification',function(data){
+    var display_this=data;
+    console.log("NOTIFICATION : "+data);
+});
 
   map.addListener('click', function(event) {
     setMapOnAll(null);
@@ -73,8 +81,13 @@ function sendGoto(){
   var lon = marker.getPosition().lng()
   var sel =  document.getElementById("altitude");
   var alt = sel.options[sel.selectedIndex].value;
-  console.log('sending go to ' + lat + ', ' + lon + ', '+ alt);
-  socket.emit('goto',{ lat : lat, lon: lon, alt: alt} );
+  if (alt == 0){
+    console.log('sending go to with same altitude ' +  lat + ', ' + lon );
+    socket.emit('goto',{ lat : lat, lon: lon } );
+  }else{
+    console.log('sending go to ' + lat + ', ' + lon + ', '+ alt);
+    socket.emit('goto',{ lat : lat, lon: lon, alt: alt} );
+  }
 }
 
 function sendLand(){
@@ -90,6 +103,16 @@ function sendHome(){
 function sendTakeoff(){
   console.log('sending takeoff with alt 20');
   socket.emit('takeoff',20);
+}
+
+function sendIncreaseAlt(){
+  console.log('sending increase altitude by 1m');
+  socket.emit('altitude', {mode: 'up', alt: 1});
+}
+
+function sendDecreaseAlt(){
+  console.log('sending decrease altitude by 1m');
+  socket.emit('altitude', {mode: 'down', alt: 1});
 }
 
 

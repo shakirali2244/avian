@@ -24,7 +24,6 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + '/app'));
-
 //for client side libs
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
@@ -70,14 +69,14 @@ app.get('/login', function(req, res) {
 
 
 
-/*app.post("/login",passport.authenticate('local', { successRedirect: '/admin',
+app.post("/login",passport.authenticate('local', { successRedirect: '/admin',
                                    failureRedirect: '/login',
                                    failureFlash: true }));
 
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/'); //Can fire before session is destroyed?
-});*/
+});
 
 
   
@@ -87,7 +86,7 @@ passport.use(new LocalStrategy(
 	{
         // by default, local strategy uses username and password, we will override with email
         usernameField : 'username',
-        passwordField : 'password',
+        passwordField : 'hash',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },function(req, username, password, done,err) { 
     // check in mongo if a user with username exists or not
