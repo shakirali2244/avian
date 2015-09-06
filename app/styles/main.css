@@ -85,20 +85,32 @@ body {
 input[type=range][orient=vertical] {
     position:absolute;
     -webkit-appearance: slider-vertical;
-    bottom:37px;
+    left: 50%;
     height: 242px;
     width: 17%;
-    border-radius: 3px;
+    border-radius: 5px;
     background: #ffffff;
     cursor: pointer;
+}
+
+button.fill_parent80{
+  width:100%;
+  text-align: center;
+}
+
+div.rockbottom{
+  position:absolute;
+  bottom:0;
+  height:60vh;
 }
 
 button.rockbottom{
   position:absolute;
   bottom:0;
+  left: 50%;
 }
-
-button.abovealt{
+h1.aboveup{
   position:absolute;
-  bottom:279px;
+  bottom:299px;
+  left: 50%;
 }

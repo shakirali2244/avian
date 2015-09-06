@@ -1,29 +1,28 @@
 <div ng-controller="MainCtrl">
   <div class="row">
-    <div class="col-md-3" style="height:80vh;" >
-        <button type="button" onClick="sendIncreaseAlt()" class="btn btn-primary abovealt" aria-label="Center Align">
-          <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-      </button>
-      <input id="currentAlt" type="range" orient="vertical" max=50 min=0 step=1>
-      <button type="button" onClick="sendDecreaseAlt()" class="btn btn-primary bottom-aligned-text rockbottom" aria-label="Center Align">
-          <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
-      </button>
-      <br />
-      <button type="button" onClick="sendTakeoff()" class="btn btn-primary" aria-label="Center Align">
+    <div class="col-md-2" style="height:80vh;" >
+      <button type="button" onClick="sendTakeoff()" class="btn btn-primary fill_parent80" aria-label="Center Align">
         <span class="glyphicon glyphicon-upload" aria-hidden="true"> Takeoff </span>
       </button>
       <br />
-      <button type="button"  onClick="deleteMarkers()" class="btn btn-primary" aria-label="Center Align">
-        <span class="glyphicon glyphicon-trash" aria-hidden="true"> Clear Goto </span>
-      </button>
-      <br />
-      <button type="button" onClick="sendHome()" class="btn btn-primary" aria-label="Center Align">
+      <button type="button" onClick="sendHome()" class="btn btn-primary fill_parent80" aria-label="Center Align">
         <span class="glyphicon glyphicon-home" aria-hidden="true"> Go Home </span>
       </button>
       <br />
-      <button type="button" onClick="sendLand()" class="btn btn-danger" aria-label="Center Align">
-        <span class="glyphicon glyphicon-road" aria-hidden="true"> Emergency Landing</span>
+      <button type="button" onClick="sendLand()" class="btn btn-danger fill_parent80" aria-label="Center Align">
+        <span class="glyphicon glyphicon-road" aria-hidden="true"> Land </span>
       </button>
+      <div class="rockbottom">
+        <h1 id="currentAltInt">11</h1><h1>m</h1>
+        <br />
+        <button type="button" onClick="sendIncreaseAlt()" class="btn btn-primary" aria-label="Center Align">
+            <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+        </button>
+        <input id="currentAlt" type="range" orient="vertical" max=50 min=0 step=1>
+        <button type="button" onClick="sendDecreaseAlt()" class="btn btn-primary bottom-aligned-text" aria-label="Center Align">
+            <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
     <div class="col-md-6">
       <object width="100%" height="100%"> 
@@ -37,8 +36,12 @@
     </div>
 
 
-    <div class="col-md-3">
-      <div id="map" style="height:460px;  overflow:visible;"></div>
+    <div class="col-md-4">
+      <div id="map" style="height:75vh;  overflow:visible;"></div>
+      <br />
+      <button type="button"  onClick="deleteMarkers()" class="btn btn-primary fill_parent80" aria-label="Center Align">
+        <span class="glyphicon glyphicon-trash" aria-hi6den="true"> Clear Goto </span>
+      </button>
     </div>
   </div>     
 
