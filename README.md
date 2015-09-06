@@ -38,3 +38,4 @@
 - [ ] Circle button
 - [ ] Connected indication
 - [ ] Map expansion on mouse hover
+- [ ] Update goto marker after goto is completed
