@@ -80,16 +80,37 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
-  .bottom-align-text {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
 }
 
 input[type=range][orient=vertical] {
     position:absolute;
     -webkit-appearance: slider-vertical;
-    top:40px;
+    left: 50%;
+    height: 242px;
+    width: 17%;
+    border-radius: 5px;
+    background: #ffffff;
+    cursor: pointer;
 }
 
+button.fill_parent80{
+  width:100%;
+  text-align: center;
+}
+
+div.rockbottom{
+  position:absolute;
+  bottom:0;
+  height:60vh;
+}
+
+button.rockbottom{
+  position:absolute;
+  bottom:0;
+  left: 50%;
+}
+h1.aboveup{
+  position:absolute;
+  bottom:299px;
+  left: 50%;
+}
