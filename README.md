@@ -30,5 +30,11 @@
 
 #
 #TODO 
-- add Bcrypt integration
-- link passort local strategy with users table  
+- [ ] add Bcrypt integration
+- [ ] link passort local strategy with users table
+- [ ] Arming/Armed/Disarmed indication
+- [ ] Prettier altitude bar with different colours to indicate height
+- [ ] Orientation tracking on map
+- [ ] Circle button
+- [ ] Connected indication
+- [ ] Map expansion on mouse hover
