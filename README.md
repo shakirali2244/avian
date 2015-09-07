@@ -38,4 +38,6 @@
 - [ ] Circle button
 - [ ] Connected indication
 - [ ] Map expansion on mouse hover
-- [ ] Update goto marker after goto is completed
+- [ ] Update (remove) goto marker after goto is completed
+- [ ] Battery level indication
+- [ ] Gimbal Control (+ specs + dronekit implementation)
