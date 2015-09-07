@@ -2,6 +2,9 @@ var map;
 var markers = [];
 var drones = [];
 var socket;
+var statusBox = document.getElementById('statusBox');
+var currentAlt = document.getElementById("currentAlt");
+var currentAltInt = document.getElementById("currentAltInt");
 var mapStyle = [
     {
         "featureType": "administrative",
@@ -108,6 +111,9 @@ var mapStyle = [
         ]
     }
 ];
+
+statusBox.style.background = 'green';
+statusBox.innerHTML = 'unarmed';
 function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
@@ -131,9 +137,9 @@ function initMap() {
     
     for (var i = 0; i < data.length; i++) {
       addDrone(data[i]);
-      var x = document.getElementById("currentAlt");
-      console.log(x.value);
-      x.value = data[i].alt;
+      //console.log(x.value);
+      currentAltInt.innerHTML = Math.round(data[i].alt);
+      currentAlt.value = data[i].alt;
     }
     //console.log(drones)
   });
@@ -141,6 +147,11 @@ function initMap() {
   socket.on('notification',function(data){
     var display_this=data;
     console.log("NOTIFICATION : "+data);
+    if (data == "Arming..."){
+      statusBox.innerHTML = "armed";
+      statusBox.style.color= 'red';
+    }
+
 });
 
   map.addListener('click', function(event) {
@@ -157,6 +168,7 @@ function addDrone(location) {
       icon: '/images/drone8.png'
     })
     drones.push(marker);
+    map.panTo(marker.getPosition());
   }
 
 function addMarker(location) {

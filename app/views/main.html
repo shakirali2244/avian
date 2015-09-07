@@ -1,6 +1,12 @@
 <div ng-controller="MainCtrl">
   <div class="row">
     <div class="col-md-2" style="height:80vh;" >
+      <div class="row">
+        <div class="col-md-8"><h3>status :</h3></div>
+        <div class="col-md-4" id="statusBox" style="background: red; height: 100%">
+        </div>
+      </div>
+        
       <button type="button" onClick="sendTakeoff()" class="btn btn-primary fill_parent80" aria-label="Center Align">
         <span class="glyphicon glyphicon-upload" aria-hidden="true"> Takeoff </span>
       </button>
@@ -13,7 +19,7 @@
         <span class="glyphicon glyphicon-road" aria-hidden="true"> Land </span>
       </button>
       <div class="rockbottom">
-        <h1 id="currentAltInt">11</h1><h1>m</h1>
+        <h3 id="currentAltInt">11</h3>
         <br />
         <button type="button" onClick="sendIncreaseAlt()" class="btn btn-primary" aria-label="Center Align">
             <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
