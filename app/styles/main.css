@@ -7,6 +7,7 @@
 
 body {
   padding: 0;
+  background-color: #eeeeee;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -21,6 +22,9 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
+    
+  background-color: #4a85dd;
+margin-bottom: 0px;
 }
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -51,6 +55,24 @@ body {
   padding: 14px 24px;
 }
 
+
+.btn-primary {
+    background-color: rgba(59, 104, 176, 0.6);
+    border-style: none; 
+    border-radius: 0;
+}
+
+.btn-primary:hover, .btn-danger:hover {
+    border-style: none;
+    transition: 0.7s;
+}
+
+.btn-danger {
+    background-color: rgba(217, 83, 79, 0.6);
+    border-radius: 0;
+    border-style: none; 
+}
+
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
@@ -74,7 +96,8 @@ body {
   }
   /* Space out the masthead */
   .header {
-    margin-bottom: 30px;
+/*    margin-bottom: 30px;*/
+      box-shadow: 0px 3px 8px #cccccc;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
@@ -113,4 +136,59 @@ h1.aboveup{
   position:absolute;
   bottom:299px;
   left: 50%;
+}
+
+.container {
+    width: 100%;
+/*
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+*/
+}
+
+.cam {
+    position: fixed;
+    top: 76px;
+}
+
+.zoom {
+    z-index: 999;
+    position: relative;
+}
+
+div#map {
+    z-index: 999;
+    position: relative;
+    margin-top: -50px;
+
+    border-radius: 200px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+    
+    border-color: #4a85dd;
+    border-style: solid;
+    border-width: 6px;
+}
+
+img {
+    width: 30%;
+}
+
+#hideDiv-takeoff:hover #hideText-takeoff,
+#hideDiv-home:hover #hideText-home,
+#hideDiv-clear:hover #hideText-clear,
+#hideDiv-shadow:hover #hideText-shadow,
+#hideDiv-emergency:hover #hideText-emergency{
+    display: block;
+    text-align: center;
+    margin: auto;
+    font-size: 12px;
+    color: white;
+}
+
+#hideText-takeoff, #hideText-home, #hideText-clear, #hideText-shadow, #hideText-emergency{
+    display: none;
+    transition:1s;
 }
