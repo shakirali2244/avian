@@ -35,6 +35,7 @@ angular
         templateUrl: 'views/ip.html',
         controller: 'ipCtrl',
         controllerAs: 'ip'
+      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
