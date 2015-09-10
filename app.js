@@ -32,8 +32,8 @@ app.use('/*', function(req, res){
   res.sendFile(__dirname + '/app/index.html');
 });
 
-console.log("Server listening on localhost:3000...")
-server.listen(3000);
+console.log("Server listening on localhost:80...")
+server.listen(80);
 
 
 //everything socket related in the /lib/socket.js

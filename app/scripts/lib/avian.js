@@ -124,7 +124,7 @@ function initMap() {
   map.set('styles', mapStyle);
 
 
-  socket = io.connect('http://localhost:3000');
+  socket = io.connect('http://test.avianrobotics.com');
   socket.on('location', function(data){
     if (!map){
      map = new google.maps.Map(document.getElementById('map'), {
