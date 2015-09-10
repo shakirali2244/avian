@@ -28,7 +28,7 @@ app.use(express.static(__dirname + '/app'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 //for ng-app
-app.use('/*', function(req, res){
+app.get('/', function(req, res){
   res.sendFile(__dirname + '/app/index.html');
 });
 
@@ -58,6 +58,21 @@ passport.deserializeUser(function(idloc, done) {
 
 
 
+
+
+
+app.post("/login", function(req,res) {
+  console.log(req.data)
+  if (req.username == "porcupine" && req.password == "porcupine"){
+      res.sendStatus(200);
+    }else{
+      res.sendStatus(200); //failing pg and body 
+    }
+});
+/*passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true }));*/
+
 passport.use(new LocalStrategy(
   {
         // by default, local strategy uses username and password, we will override with email
@@ -65,6 +80,7 @@ passport.use(new LocalStrategy(
         passwordField : 'hash',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },function(req, username, password, done,err) { 
+      console.log("authing")
     // check in mongo if a user with username exists or not
     con.knex('users').select().from('users').where({username: username}).then(function(a) {
         //In case of any error, return using the done method
@@ -89,15 +105,10 @@ passport.use(new LocalStrategy(
     );
 }));
 
-
-app.post("/login",passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: true }));
-
-app.get('/logout', function(req, res){
+/*app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/'); //Can fire before session is destroyed?
-});
+});*/
 
 
   
