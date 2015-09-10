@@ -10,14 +10,19 @@
 angular.module('avianApp')
   .controller('ipCtrl', function ($scope) {
 
-  	$scope.ip = 'Waiting for IP From Pi...'
+  	$scope.ipinfo = 'Waiting for IP Info From Pi...'
 
   	var socket;
   	socket = io.connect('http://test.avianrobotics.com');
 
+  	$scope.getIP = function(){
+  		console.log("Sent request to get IP info")
+  		socket.emit('getIPFromClient', 'get');
+  	};
+
   	socket.on('ipFromServer', function(data){
-  		$scope.ip = String(data);
-  		console.log(data);
-  		socket.emit('ipAckFromClient', 'ack');
+		console.log(data);
+  		$scope.ipinfo = "Recieved IP Info...";
+  		$scope.ipinfo = String(data);
   	});
 });
