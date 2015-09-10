@@ -31,6 +31,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/ip', {
+        templateUrl: 'views/ip.html',
+        controller: 'ipCtrl',
+        controllerAs: 'ip'
+      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
