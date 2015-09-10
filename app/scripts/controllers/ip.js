@@ -17,6 +17,7 @@ angular.module('avianApp')
 
   	socket.on('ipFromServer', function(data){
   		$scope.ip = data;
+  		console.log(data);
   		socket.emit('ipAckFromClient', 'ack');
   	});
 });
