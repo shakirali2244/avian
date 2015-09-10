@@ -13,7 +13,7 @@ angular.module('avianApp')
   	$scope.ip = 'Waiting for IP From Pi...'
 
   	var socket;
-  	socket = io.connect('http://localhost:3000');
+  	socket = io.connect('http://test.avianrobotics.com');
 
   	socket.on('ipFromServer', function(data){
   		$scope.ip = data;
