@@ -11,6 +11,7 @@ angular.module('avianApp')
   .controller('ipCtrl', function ($scope) {
 
   	$scope.ipinfo = 'Waiting for IP Info From Pi...'
+  	$scope.ipinfo-btntype = 'btn-danger'
 
   	var socket;
   	socket = io.connect('http://test.avianrobotics.com');
@@ -22,6 +23,7 @@ angular.module('avianApp')
 
   	socket.on('ipFromServer', function(data){
 		console.log(data);
+		$scope.ipinfo-btntype = 'btn-success'
   		$scope.ipinfo = "Recieved IP Info...";
   		$scope.ipinfo = String(data);
   	});
