@@ -57,33 +57,9 @@ passport.deserializeUser(function(idloc, done) {
 });
 
 
-//app.use(app.router);
-
-app.get('/login', function(req, res) {
-    if (!(req.user == undefined)){
-		res.redirect('/admin');
-	}else{
-		res.render('login.ejs',{});
-	}
-  });
-
-
-
-app.post("/login",passport.authenticate('local', { successRedirect: '/admin',
-                                   failureRedirect: '/',
-                                   failureFlash: true }));
-
-app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/'); //Can fire before session is destroyed?
-});
-
-
-  
-//Local strategy
 
 passport.use(new LocalStrategy(
-	{
+  {
         // by default, local strategy uses username and password, we will override with email
         usernameField : 'username',
         passwordField : 'hash',
@@ -112,3 +88,19 @@ passport.use(new LocalStrategy(
       }
     );
 }));
+
+
+app.post("/login",passport.authenticate('local', { successRedirect: '/',
+                                   failureRedirect: '/login',
+                                   failureFlash: true }));
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/'); //Can fire before session is destroyed?
+});
+
+
+  
+//Local strategy
+
+
