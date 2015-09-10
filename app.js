@@ -70,7 +70,7 @@ app.get('/login', function(req, res) {
 
 
 app.post("/login",passport.authenticate('local', { successRedirect: '/admin',
-                                   failureRedirect: '/login',
+                                   failureRedirect: '/',
                                    failureFlash: true }));
 
 app.get('/logout', function(req, res){
