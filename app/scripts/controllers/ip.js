@@ -10,7 +10,7 @@
 angular.module('avianApp')
   .controller('ipCtrl', function ($scope) {
 
-  	$scope.ip = 'Waiting for emit...'
+  	$scope.ip = 'Waiting for IP From Pi...'
 
   	var socket;
   	socket = io.connect('http://localhost:3000');
