@@ -46,6 +46,11 @@ angular
         controller: 'PanelCtrl',
         controllerAs: 'panel'
       })
+      .when('/beacon', {
+        templateUrl: 'views/beacon.html',
+        controller: 'beaconCtrl',
+        controllerAs: 'beacon'
+      })
       .otherwise({
         redirectTo: '/'
       });
