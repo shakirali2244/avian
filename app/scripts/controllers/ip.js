@@ -24,8 +24,7 @@ angular.module('avianApp')
   	socket.on('ipFromServer', function(data){
 		console.log(data);
 		$scope.ipinfo_btntype = 'btn-success';
-  		$scope.ipinfo = "Recieved IP Info...";
-  		$scope.ipinfo = String(data);
+  		$scope.ipinfo = data;
   		$scope.$apply();
   	});
 });
