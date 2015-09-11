@@ -25,7 +25,7 @@ angular.module('avianApp')
               data).success(function(data, status) {
             console.log(status);
             if (status == 200){
-              $window.location.href = '/';
+              $window.location.href = 'http://test.avianrobotics.com/#/panel';
             }
 
         });

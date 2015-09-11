@@ -41,6 +41,11 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
+      .when('/panel', {
+        templateUrl: 'views/panel.html',
+        controller: 'PanelCtrl',
+        controllerAs: 'panel'
+      })
       .otherwise({
         redirectTo: '/'
       });
