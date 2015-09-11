@@ -220,15 +220,17 @@ function addMarker(location) {
 		map: map,
 		icon: '/images/goto8.png'
 	});
-	var contentString = 'Select Altitude <select class="form-control" id="altitude">'+
+	var contentString = '<div id = "infowindow">'+ 
+        'Select Altitude <select class="form-control" id="altitude">'+
 		'<option value="0">0</option>'+
 		'<option value="10">10</option>'+
 		'<option value="30">30</option>'+
 		'</select>'+
 		'<br />'+
-		'<button type="button"  onClick="sendGoto()" class="btn btn-primary" aria-label="Left Align">'+
+		'<button type="button" id = "gotoButton" onClick="sendGoto()" class="btn btn-primary" aria-label="Left Align">'+
 		'<span class="glyphicon glyphicon-send" aria-hidden="true"> Goto</span>'+
-		'</button>';
+		'</button>'+
+        '</div>';
 
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString
@@ -244,6 +246,13 @@ function addMarker(location) {
         infoWindowClosedPressed = true;
         infoWindowOpen = false;
         markers.pop().setMap(null);
+    });
+
+     google.maps.event.addListener(infowindow, 'domready', function() {
+        $('#infowindow button').on('click',function(){
+            // console.log(clickedLocation);
+            infowindow.close();
+        });
     });
 
 	infoWindowOpen = true;
