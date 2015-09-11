@@ -5,6 +5,10 @@ var socket;
 var statusBox = document.getElementById('statusBox');
 var currentAlt = document.getElementById("currentAlt");
 var currentAltInt = document.getElementById("currentAltInt");
+var gotoPressed = false;
+var infoWindowClosedPressed = false;
+var infoWindowOpen = false;
+
 var mapStyle = [
 {
 	"featureType": "administrative",
@@ -124,7 +128,7 @@ function initMap() {
 	map.set('styles', mapStyle);
 
 
-	socket = io.connect('http://test.avianrobotics.com');
+	socket = io.connect('localhost');
 	socket.on('location', function(data){
 		if (!map){
 			map = new google.maps.Map(document.getElementById('map'), {
@@ -154,9 +158,15 @@ function initMap() {
 
 	});
 
+    socket.on('completedExecutionFromServerToClient', function(data){
+        console.log("Shifting marker")
+        shiftMarker();
+    });
+
 	map.addListener('click', function(event) {
-		setMapOnAll(null);
-		addMarker(event.latLng);
+		//setMapOnAllMarkers(null)
+        addMarker(event.latLng);
+
 	});
 
 	map.addListener('mouseover', function(event) {
@@ -194,13 +204,32 @@ function addMarker(location) {
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString
 	});
+    
+    markers.push(marker);
 
-	infowindow.open(map,marker);
-	markers[0] = marker;
+    google.maps.event.addListener(infowindow, 'closeclick', function() {
+
+        // Bind the click event on your button here
+        
+        console.log("infoWindow closed");
+        infoWindowClosedPressed = true;
+        infoWindowOpen = false;
+        markers.pop().setMap(null);
+
+    });
+
+    infowindow.open(map,marker);
+}
+
+function shiftMarker() {
+    console.log("Before" + markers);
+    markers.shift().setMap(null);
+    console.log("After" + markers);
 }
 
 function sendGoto(){
-	var marker = markers[0];
+	var gotoPressed = true;
+    var marker = markers[markers.length-1];
 	var lat = marker.getPosition().lat()
 		var lon = marker.getPosition().lng()
 		var sel =  document.getElementById("altitude");
@@ -240,7 +269,7 @@ function sendDecreaseAlt(){
 }
 
 
-function setMapOnAll(map) {
+function setMapOnAllMarkers(map) {
 	for (var i = 0; i < markers.length; i++) {
 		markers[i].setMap(map);
 	}
@@ -252,10 +281,9 @@ function setMapOnAllDrone(map) {
 	}
 }
 
-
 // Removes the markers from the map, but keeps them in the array.
 function clearMarkers() {
-	setMapOnAll(null);
+	setMapOnAllMarkers(null);
 }
 
 function clearDrones() {
