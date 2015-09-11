@@ -166,10 +166,16 @@ h1.aboveup{
 }
 
 div#map {
+	height: 285px;
+	width: 285px;
+	float: right;
+	margin-left: 0px;
     z-index: 999;
     position: relative;
     margin-top: 0px;
+	overflow:visible;
 
+	transition: all 1s;
     border-radius: 200px;
 	-webkit-border-radius: 200px;
 	-moz-border-radius: 200px;
@@ -177,6 +183,11 @@ div#map {
     border-color: #4a85dd;
     border-style: solid;
     border-width: 6px;
+}
+
+div#map:hover {
+	width: 400px;
+	height: 400px;
 }
 
 img {

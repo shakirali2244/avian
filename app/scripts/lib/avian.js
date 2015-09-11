@@ -159,8 +159,8 @@ function initMap() {
 		addMarker(event.latLng);
 	});
 
-	map.addListener('mouseover', function(event)) {
-
+	map.addListener('mouseover', function(event) {
+		google.maps.event.trigger(map, 'resize');
 	});
 
 }
