@@ -222,9 +222,11 @@ function addMarker(location) {
 	});
 	var contentString = '<div id = "infowindow">'+ 
         'Select Altitude <select class="form-control" id="altitude">'+
-		'<option value="0">0</option>'+
+		'<option value="0">Maintain</option>'+
 		'<option value="10">10</option>'+
+        '<option value="20">20</option>'+
 		'<option value="30">30</option>'+
+        '<option value="40">40</option>'+
 		'</select>'+
 		'<br />'+
 		'<button type="button" id = "gotoButton" onClick="sendGoto()" class="btn btn-primary" aria-label="Left Align">'+
