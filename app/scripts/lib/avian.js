@@ -257,7 +257,6 @@ function addMarker(location) {
 
 	infoWindowOpen = true;
 	infowindow.open(map,marker);
-	markers[0] = marker;
 }
 
 function shiftMarker() {
@@ -270,7 +269,6 @@ function sendGoto(){
 	infoWindowOpen = false;
 	var gotoPressed = true;
     var marker = markers[markers.length-1];
-	var marker = markers[0];
 	var lat = marker.getPosition().lat()
 	var lon = marker.getPosition().lng()
 	var sel =  document.getElementById("altitude");
