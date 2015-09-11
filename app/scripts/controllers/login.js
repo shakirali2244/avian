@@ -21,7 +21,7 @@ angular.module('avianApp')
         }
       console.log(data);
 
-    $http.post('http://localhost/login/',
+    $http.post('http://test.avianrobotics.com/login/',
               data).success(function(data, status) {
             console.log(status);
             if (status == 200){

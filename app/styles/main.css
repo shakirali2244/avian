@@ -186,8 +186,8 @@ div#map {
 }
 
 div#map:hover {
-	width: 400px;
-	height: 400px;
+	width: 600px;
+	height: 600px;
 }
 
 img {
@@ -199,6 +199,11 @@ img {
     width: 50%;
 }
 
+#controls {
+	position:fixed;
+	bottom:0px;
+	left:0px;"
+}
 #hideDiv-takeoff:hover #hideText-takeoff,
 #hideDiv-home:hover #hideText-home,
 #hideDiv-clear:hover #hideText-clear,
@@ -214,4 +219,12 @@ img {
 #hideText-takeoff, #hideText-home, #hideText-clear, #hideText-shadow, #hideText-emergency{
     display: none;
     transition:1s;
+}
+
+/* Hide google map tos buttons etc lol */
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
 }
