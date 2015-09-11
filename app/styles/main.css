@@ -138,6 +138,13 @@ h1.aboveup{
   left: 50%;
 }
 
+.noGaps {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
 .container {
     width: 100%;
 /*
@@ -150,7 +157,7 @@ h1.aboveup{
 
 .cam {
     position: fixed;
-    top: 76px;
+	height: 100%;
 }
 
 .zoom {
@@ -161,7 +168,7 @@ h1.aboveup{
 div#map {
     z-index: 999;
     position: relative;
-    margin-top: -50px;
+    margin-top: 0px;
 
     border-radius: 200px;
 	-webkit-border-radius: 200px;

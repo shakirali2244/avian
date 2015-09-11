@@ -1,5 +1,5 @@
 <div ng-controller="MainCtrl">
-  <div class="row">
+  <div class="row noGaps">
 <!--
     <div class="col-md-2" style="height:80vh;" >
       <div class="row">
@@ -30,20 +30,19 @@
     <div class="col-md-1 zoom">
       <input id="currentAlt" type="range" orient="vertical">
     </div>
-    <div class="col-md-7">
+    <div class="col-md-8">
     </div>
     <div class="col-md-3">
         <div id="map" style="height:287.25px;  overflow:visible;"></div>
     </div>
 
-    <div class="col-md-12 cam">
-      <object width="100%" height="1000px"> 
+    <div class="col-md-12 cam noGaps">
+      <object width="100%" height="100%"> 
         <param name="movie" value="../StrobeMediaPlayback.swf"></param>
-        <param name="flashvars" value="src=rtmp%3A%2F%2Fwww.avianrobotics.com%3A3002%2Flive%2Fstream1&streamType=live&optimizeBuffering=false&bufferTime=0&initialBufferTime=0&expandedBufferTime=0&liveBufferTime=0&minContinuousPlaybackTime=0&autoPlay=true"></param>
+        <param name="flashvars" value="src=rtmp%3A%2F%2Fwww.avianrobotics.com%3A3002%2Flive%2Fstream1&streamType=live&optimizeBuffering=false&bufferTime=0&initialBufferTime=0&expandedBufferTime=0&liveBufferTime=0&minContinuousPlaybackTime=0&autoPlay=true&controlBarMode=none"></param>
         <param name="allowFullScreen" value="true"></param>
-        <param name="allowscriptaccess" value="always"></param>
         <param name="wmode" value="direct"></param>
-        <embed id="videostreamwebkit" src="../StrobeMediaPlayback.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="direct" width="461" height="461" flashvars="src=rtmp%3A%2F%2Fwww.avianrobotics.com%3A3002%2Flive%2Fstream1&streamType=live&optimizeBuffering=false&bufferTime=0&initialBufferTime=0&expandedBufferTime=0&liveBufferTime=0&minContinuousPlaybackTime=0&autoPlay=true"></embed>
+        <embed id="videostreamwebkit" src="../StrobeMediaPlayback.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="direct" width="100%" height="100%" flashvars="src=rtmp%3A%2F%2Fwww.avianrobotics.com%3A3002%2Flive%2Fstream1&streamType=live&optimizeBuffering=false&bufferTime=0&initialBufferTime=0&expandedBufferTime=0&liveBufferTime=0&minContinuousPlaybackTime=0&autoPlay=true&controlBarMode=none"></embed>
       </object>
     </div>
 
