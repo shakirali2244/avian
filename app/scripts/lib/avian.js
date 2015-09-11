@@ -1,6 +1,7 @@
 var map;
 var markers = [];
 var drones = [];
+var infoWindowOpen = false;
 var socket;
 var statusBox = document.getElementById('statusBox');
 var currentAlt = document.getElementById("currentAlt");
@@ -140,6 +141,7 @@ function initMap() {
 			});
 		}
 		deleteDrones();
+		google.maps.event.trigger(map, 'resize');
 
 		for (var i = 0; i < data.length; i++) {
 			addDrone(data[i]);
@@ -175,12 +177,27 @@ function initMap() {
 		window.setTimeout(function() {
 			if(typeof drones[0] != 'undefined') {
 				map.panTo(drones[0].getPosition());
-				google.maps.event.trigger(map, 'resize');
 			}
+			google.maps.event.trigger(map, 'resize');
 		}, 1100);
 	});
-	map.addListener('mousemove', function(event) {
+	map.addListener('mouseover', function(event) {
 		google.maps.event.trigger(map, 'resize');
+		window.setTimeout(function() {
+			google.maps.event.trigger(map, 'resize');
+		}, 200);
+		window.setTimeout(function() {
+			google.maps.event.trigger(map, 'resize');
+		}, 400);
+		window.setTimeout(function() {
+			google.maps.event.trigger(map, 'resize');
+		}, 600);
+		window.setTimeout(function() {
+			google.maps.event.trigger(map, 'resize');
+		}, 800);
+		window.setTimeout(function() {
+			google.maps.event.trigger(map, 'resize');
+		}, 1100);
 	});
 
 }
@@ -192,7 +209,9 @@ function addDrone(location) {
 		icon: '/images/drone8.png'
 	})
 	drones.push(marker);
-	map.panTo(marker.getPosition());
+	if(infoWindowOpen === false) {
+		map.panTo(marker.getPosition());
+	}
 }
 
 function addMarker(location) {
@@ -225,10 +244,11 @@ function addMarker(location) {
         infoWindowClosedPressed = true;
         infoWindowOpen = false;
         markers.pop().setMap(null);
-
     });
 
-    infowindow.open(map,marker);
+	infoWindowOpen = true;
+	infowindow.open(map,marker);
+	markers[0] = marker;
 }
 
 function shiftMarker() {
@@ -238,11 +258,13 @@ function shiftMarker() {
 }
 
 function sendGoto(){
+	infoWindowOpen = false;
 	var gotoPressed = true;
     var marker = markers[markers.length-1];
+	var marker = markers[0];
 	var lat = marker.getPosition().lat()
-		var lon = marker.getPosition().lng()
-		var sel =  document.getElementById("altitude");
+	var lon = marker.getPosition().lng()
+	var sel =  document.getElementById("altitude");
 	var alt = sel.options[sel.selectedIndex].value;
 	if (alt == 0){
 		console.log('sending go to with same altitude ' +  lat + ', ' + lon );
@@ -251,7 +273,6 @@ function sendGoto(){
 		console.log('sending go to ' + lat + ', ' + lon + ', '+ alt);
 		socket.emit('goto',{ lat : lat, lon: lon, alt: alt} );
 	}
-	infowindow.close();
 }
 
 function sendLand(){
