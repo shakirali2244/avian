@@ -186,8 +186,8 @@ div#map {
 }
 
 div#map:hover {
-	width: 400px;
-	height: 400px;
+	width: 600px;
+	height: 600px;
 }
 
 img {
@@ -214,4 +214,12 @@ img {
 #hideText-takeoff, #hideText-home, #hideText-clear, #hideText-shadow, #hideText-emergency{
     display: none;
     transition:1s;
+}
+
+/* Hide google map tos buttons etc lol */
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
 }

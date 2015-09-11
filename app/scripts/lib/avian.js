@@ -118,7 +118,8 @@ function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 49.277447, lng: -122.917120},
 		zoom: 14,
-		mapTypeId: google.maps.MapTypeId.HYBRID
+		mapTypeId: google.maps.MapTypeId.HYBRID,
+		disableDefaultUI: true
 	});
 
 	map.set('styles', mapStyle);
@@ -130,7 +131,8 @@ function initMap() {
 			map = new google.maps.Map(document.getElementById('map'), {
 				center: {lat: 49.277447, lng: -122.917120},
 				zoom: 14,
-				mapTypeId: google.maps.MapTypeId.HYBRID
+				mapTypeId: google.maps.MapTypeId.HYBRID,
+				disableDefaultUI: true
 			});
 		}
 		deleteDrones();
@@ -159,7 +161,15 @@ function initMap() {
 		addMarker(event.latLng);
 	});
 
-	map.addListener('mouseover', function(event) {
+	map.addListener('mouseout', function(event) {
+		window.setTimeout(function() {
+			if(typeof drones[0] != 'undefined') {
+				map.panTo(drones[0].getPosition());
+				google.maps.event.trigger(map, 'resize');
+			}
+		}, 1100);
+	});
+	map.addListener('mousemove', function(event) {
 		google.maps.event.trigger(map, 'resize');
 	});
 
@@ -212,6 +222,7 @@ function sendGoto(){
 		console.log('sending go to ' + lat + ', ' + lon + ', '+ alt);
 		socket.emit('goto',{ lat : lat, lon: lon, alt: alt} );
 	}
+	infowindow.close();
 }
 
 function sendLand(){
