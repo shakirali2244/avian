@@ -199,6 +199,11 @@ img {
     width: 50%;
 }
 
+#controls {
+	position:fixed;
+	bottom:0px;
+	left:0px;"
+}
 #hideDiv-takeoff:hover #hideText-takeoff,
 #hideDiv-home:hover #hideText-home,
 #hideDiv-clear:hover #hideText-clear,
