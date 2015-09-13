@@ -32,12 +32,15 @@
 #TODO 
 - [ ] add Bcrypt integration
 - [ ] link passort local strategy with users table
-- [ ] Arming/Armed/Disarmed indication
+- [ ] DB Models to persist waypoints and drones
+- [ ] Sequential Goto 
+- - Partially working, error in the order of closing infowindow
 - [ ] Prettier altitude bar with different colours to indicate height
 - [ ] Orientation tracking on map
 - [ ] Circle button
 - [ ] Connected indication
-- [ ] Map expansion on mouse hover
-- [ ] Update (remove) goto marker after goto is completed
 - [ ] Battery level indication
 - [ ] Gimbal Control (+ specs + dronekit implementation)
+- [x] Map expansion on mouse hover
+- [x] Update (remove) goto marker after goto is completed
+- [x] Arming/Armed/Disarmed indication
