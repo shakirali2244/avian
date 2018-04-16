@@ -1,0 +1,4 @@
+module load droneapi.module.api
+api start /home/ubuntu/avian-api/drone-kit.py
+set param ARMING_CHECK 0
+set param RC3_MIN 1101 

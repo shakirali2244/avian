@@ -33,7 +33,7 @@ app.get('/', function(req, res){
 });
 
 console.log("Server listening on localhost:80...")
-server.listen(80);
+server.listen(8080);
 
 
 //everything socket related in the /lib/socket.js

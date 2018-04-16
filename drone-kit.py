@@ -50,6 +50,7 @@ class Drone(object):
         self.gps_lock = False
         
         self.vehicle = self.api.get_vehicles()[0]
+        self.vehicle.parameters['ARMING_CHECK']=0
         self.commands = self.vehicle.commands
         self.current_coords = []
 
@@ -466,4 +467,4 @@ SocketIO_Specs = {
     ]
 }
 
-Drone('test.avianrobotics.com', 80).listen()
+Drone('127.0.0.1', 8080).listen()
